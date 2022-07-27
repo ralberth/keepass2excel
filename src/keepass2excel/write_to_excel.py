@@ -26,12 +26,13 @@ def write_header(excel):
 def write_to_excel(kpg, excel, row=Sequence(2)):
     for entry in kpg.entries:
         r = row.val()
+        notes = "; ".join(entry.notes.split("\n"))
         excel.set_cell(r, 0, kpg.name)
         excel.set_cell(r, 1, entry.title)
         excel.set_cell(r, 2, entry.username)
         excel.set_cell(r, 3, entry.password, font="Monaco", size=10)
         excel.set_cell(r, 4, entry.url)
-        excel.set_cell(r, 5, entry.notes)
+        excel.set_cell(r, 5, notes)
         row.increment()
 
     for group in kpg.groups:

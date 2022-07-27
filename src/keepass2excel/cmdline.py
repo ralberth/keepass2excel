@@ -17,7 +17,8 @@ def print_group(group, indent_level=0):
 
 def parse_commandline():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--toc", "-t", action="store_true")
+    parser.add_argument("--toc", action="store_true")
+    parser.add_argument("--tags", nargs="+")
     parser.add_argument("keepass_export_xml", type=argparse.FileType('r'))
     parser.add_argument("excel_output", type=argparse.FileType('wb'))
     return parser.parse_args()
@@ -30,11 +31,11 @@ write_header(excel)
 
 doc = xmltodict.parse(args.keepass_export_xml.read())
 top_level_group = doc["KeePassFile"]["Root"]["Group"]
-kpg = KeepassGroup(top_level_group)
+kpg = KeepassGroup(top_level_group, args.tags)
 
 if args.toc:
     print_group(kpg)
 
 write_to_excel(kpg, excel)
-excel.set_column_widths([ 20, 40, 23, 30, 43, 80 ])
+excel.set_column_widths([ 20, 40, 23, 30, 35, 80 ])
 excel.save(args.excel_output)

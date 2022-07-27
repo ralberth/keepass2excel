@@ -5,6 +5,9 @@ class KeepassEntry():
         self.notes = ""
         self.username = ""
         self.password = ""
+        self.tags = []
+        if entry.get("Tags"):
+            self.tags = entry["Tags"].split(";")
 
         for keyValue in entry["String"]:
             key = keyValue["Key"]
@@ -19,6 +22,12 @@ class KeepassEntry():
                 self.username = val
             elif key == "Password" and val:
                 self.password = val.get("#text", "")
+
+    def has_any_tags(self, tags):
+        for tag in tags:
+            if tag in self.tags:
+                return True
+        return False
 
     def __str__(self):
         return f"KeepassEntry(title={self.title}, u={self.username}, p={self.password}, url={self.url})"

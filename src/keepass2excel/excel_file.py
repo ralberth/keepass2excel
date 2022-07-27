@@ -15,11 +15,13 @@ class ExcelFile():
         for i in range(0, len(col_widths)):
             self.worksheet.column_dimensions[index2letter(i)].width = col_widths[i]
 
-    def set_cell(self, row, col, text, font="Calibri", size=12, foreground="000000", bold=False, background=None):
+    def set_cell(self, row, col, text, font="Calibri", size=12, foreground="000000", bold=False,
+                background=None, halign="left", valign="top", wrap=True):
         cell_location = f"{index2letter(col)}{row}"
         cell = self.worksheet[cell_location]
         cell.value = text
         cell.font = Font(name=font, size=size, color=foreground, bold=bold)
+        cell.alignment = Alignment(wrap_text=wrap, horizontal=halign, vertical=valign)
         if background:
             cell.fill = PatternFill("solid", start_color=background)
 
