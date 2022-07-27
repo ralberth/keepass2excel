@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<KeePassFile>
+  <Meta>
+    <Generator>MacPass</Generator>
+    <DatabaseName>Database</DatabaseName>
+    <DatabaseNameChanged>2022-07-26T01:37:12Z</DatabaseNameChanged>
+    <DatabaseDescription/>
+    <DatabaseDescriptionChanged>2022-07-26T01:37:12Z</DatabaseDescriptionChanged>
+    <DefaultUserName/>
+    <DefaultUserNameChanged>2022-07-26T01:37:12Z</DefaultUserNameChanged>
+    <MaintenanceHistoryDays>365</MaintenanceHistoryDays>
+    <Color/>
+    <MasterKeyChanged>2022-07-26T01:37:31Z</MasterKeyChanged>
+    <MasterKeyChangeRec>-1</MasterKeyChangeRec>
+    <MasterKeyChangeForce>-1</MasterKeyChangeForce>
+    <MemoryProtection>
+      <ProtectTitle>False</ProtectTitle>
+      <ProtectUserName>False</ProtectUserName>
+      <ProtectPassword>True</ProtectPassword>
+      <ProtectURL>False</ProtectURL>
+      <ProtectNotes>False</ProtectNotes>
+    </MemoryProtection>
+    <RecycleBinEnabled>True</RecycleBinEnabled>
+    <RecycleBinUUID>r2Z7t51JQz+7r4caHKRqMQ==</RecycleBinUUID>
+    <RecycleBinChanged>2022-07-26T01:37:19Z</RecycleBinChanged>
+    <EntryTemplatesGroup>AAAAAAAAAAAAAAAAAAAAAA==</EntryTemplatesGroup>
+    <EntryTemplatesGroupChanged>2022-07-26T01:37:12Z</EntryTemplatesGroupChanged>
+    <HistoryMaxItems>10</HistoryMaxItems>
+    <HistoryMaxSize>6291456</HistoryMaxSize>
+    <LastSelectedGroup>CSnan9S+T0Knnw+yeZtViw==</LastSelectedGroup>
+    <LastTopVisibleGroup>AAAAAAAAAAAAAAAAAAAAAA==</LastTopVisibleGroup>
+    <Binaries/>
+    <CustomData/>
+  </Meta>
+  <Root>
+  </Root>
+</KeePassFile>
