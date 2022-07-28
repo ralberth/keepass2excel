@@ -36,34 +36,5 @@ class ExcelFile():
             cell.fill = PatternFill("solid", start_color=background)
         cell.border = Border(top=Side(border_style="hair", color="AAAAAA"))
 
-
-        # self.current_row = self.current_row + 1
-        # cell_name_iter = ExcelColumnCellIterator(self.current_row)
-        # if col_defs:
-        #     for col_def in col_defs:
-        #         if type(col_def) == str or type(col_def) == int:
-        #             value = col_def
-        #             styles = []
-        #         else:
-        #             col_def_as_ary = [ c for c in col_def ]
-        #             value = col_def_as_ary.pop(0)
-        #             styles = col_def_as_ary
-        #         if type(value) == str:
-        #             value = value.replace("{row}", str(self.current_row))
-        #         cell = self.worksheet[cell_name_iter.next_cell_name()]
-        #         cell.value = value
-        #         for style in styles:
-        #             if type(style) == Font:
-        #                 cell.font = style
-        #             elif type(style) == PatternFill:
-        #                 cell.fill = style
-        #             elif type(style) == Border:
-        #                 cell.border = style
-        #             elif type(style) == Alignment:
-        #                 cell.alignment = style
-        #             elif type(style) == str:
-        #                 cell.number_format = style
-
-
     def save(self, out_stream):
         self.workbook.save(out_stream)

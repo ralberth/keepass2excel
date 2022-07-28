@@ -2,10 +2,8 @@ from keepass2excel.keepass_entry import KeepassEntry
 
 class KeepassGroup():
     def __init__(self, group_node, tags):
-        # print(f"Looking at raw node {group_node}")
         self.name = group_node['Name']
         entries = group_node.get("Entry", [])
-        # print(f"Entries {entries}")
         if isinstance(entries, dict):
             entries = [ entries ]
         self.entries = []

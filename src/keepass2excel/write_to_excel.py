@@ -16,7 +16,6 @@ def write_header(excel):
         "background": "154360",
         "size": 9
     }
-    # excel.set_cell(1, 0, "Group",    **styles)
     excel.set_cell(1, 0, "Title",    **styles)
     excel.set_cell(1, 1, "Username", **styles)
     excel.set_cell(1, 2, "Password", **styles)
