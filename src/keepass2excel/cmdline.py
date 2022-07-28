@@ -37,5 +37,6 @@ if args.toc:
     print_group(kpg)
 
 write_to_excel(kpg, excel)
-excel.set_column_widths([ 20, 40, 23, 30, 35, 80 ])
+# excel.set_column_widths([ 20, 40, 23, 30, 35, 80 ])
+excel.set_column_widths([ 27, 22, 19, 45 ])
 excel.save(args.excel_output)

@@ -10,6 +10,16 @@ class ExcelFile():
     def __init__(self):
         self.workbook = Workbook()
         self.worksheet = self.workbook.active
+        self.worksheet.page_setup.orientation = "landscape"
+        self.worksheet.page_margins.left = 0.6
+        self.worksheet.page_margins.right = 0.6
+        self.worksheet.page_margins.top = 0.6
+        self.worksheet.page_margins.bottom = 0.6
+        self.worksheet.print_title_rows = "1:1"  # first row on every page
+        self.worksheet.oddFooter.left.text = "Page &[Page] of &N"
+        self.worksheet.oddFooter.left.size = 9
+        self.worksheet.oddFooter.left.font = "Tahoma,Italic"
+        self.worksheet.oddFooter.left.color = "0000FF"
 
     def set_column_widths(self, col_widths):
         for i in range(0, len(col_widths)):
@@ -24,7 +34,7 @@ class ExcelFile():
         cell.alignment = Alignment(wrap_text=wrap, horizontal=halign, vertical=valign)
         if background:
             cell.fill = PatternFill("solid", start_color=background)
-
+        cell.border = Border(top=Side(border_style="hair", color="AAAAAA"))
 
 
         # self.current_row = self.current_row + 1

@@ -13,26 +13,39 @@ def write_header(excel):
     styles = {
         "foreground": "FFFFFF",
         "bold": True,
-        "background": "154360"
+        "background": "154360",
+        "size": 9
     }
-    excel.set_cell(1, 0, "Group",    **styles)
-    excel.set_cell(1, 1, "Title",    **styles)
-    excel.set_cell(1, 2, "Username", **styles)
-    excel.set_cell(1, 3, "Password", **styles)
-    excel.set_cell(1, 4, "URL",      **styles)
-    excel.set_cell(1, 5, "Notes",    **styles)
+    # excel.set_cell(1, 0, "Group",    **styles)
+    excel.set_cell(1, 0, "Title",    **styles)
+    excel.set_cell(1, 1, "Username", **styles)
+    excel.set_cell(1, 2, "Password", **styles)
+    excel.set_cell(1, 3, "Notes",    **styles)
 
 
 def write_to_excel(kpg, excel, row=Sequence(2)):
+    styles = {
+        "size": 9
+    }
     for entry in kpg.entries:
         r = row.val()
-        notes = "; ".join(entry.notes.split("\n"))
-        excel.set_cell(r, 0, kpg.name)
-        excel.set_cell(r, 1, entry.title)
-        excel.set_cell(r, 2, entry.username)
-        excel.set_cell(r, 3, entry.password, font="Monaco", size=10)
-        excel.set_cell(r, 4, entry.url)
-        excel.set_cell(r, 5, notes)
+
+        formatted_parts = []
+        if entry.url:
+            formatted_parts.append(entry.url)
+        if entry.notes:
+            unwrapped_notes = "; ".join(entry.notes.split("\n"))
+            formatted_parts.append(unwrapped_notes)
+        if formatted_parts:
+            notes = "\n".join(formatted_parts)
+        else:
+            notes = ""
+
+        # excel.set_cell(r, 0, kpg.name)
+        excel.set_cell(r, 0, entry.title, **styles)
+        excel.set_cell(r, 1, entry.username, **styles)
+        excel.set_cell(r, 2, entry.password, font="Monaco", size=8)
+        excel.set_cell(r, 3, notes, **styles)
         row.increment()
 
     for group in kpg.groups:
